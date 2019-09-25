@@ -8,11 +8,11 @@
 %
 %
 
-entre1 = mat2gray(imread("./img-training/prueba1.png"));
-entre2 = mat2gray(imread("./img-training/prueba2.png"));
-entre3 = mat2gray(imread("./img-training/prueba3.png"));
+entre1 = im2double(imread("./img-training/prueba1.png"));
+entre2 = im2double(imread("./img-training/prueba2.png"));
+entre3 = im2double(imread("./img-training/prueba3.png"));
 
-imagen = mat2gray(imread("./img-training/prueba1.png")); % IMAGEN DE PRUEBA
+imagen = im2double(imread("./img-training/prueba1.png")); % IMAGEN DE PRUEBA
 
 [covHalo, meanHalo, probaHalo, covPros, meanPros, probaPros,covFondo, meanFondo, probaFondo] = training(entre1, entre2, entre3);
 

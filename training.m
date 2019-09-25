@@ -10,6 +10,7 @@ Halo2 = getMask(entre2);
 Halo3 = getMask(entre3);
 probaHalo = classProb(Halo1,Halo2,Halo3);
 
+
 Pros1 = getMask(entre1);
 Pros2 = getMask(entre2);
 Pros3 = getMask(entre3);
@@ -23,17 +24,17 @@ probaFondo = classProb(Fondo1,Fondo2,Fondo3);
 % Obtenemos la matriz de covarianzas y el vector de 
 % medias de cada clase, concatenando cada máscara
 matrixHalo = cat(1, immultiply(entre1,double(Halo1)),...
-                    immultiply(entre1,double(Halo2)),...
-                    immultiply(entre1,double(Halo3)));
+                    immultiply(entre2,double(Halo2)),...
+                    immultiply(entre3,double(Halo3)));
 [meanHalo, covHalo] = meanAndCov(matrixHalo);
 
 matrixPros = cat(1, immultiply(entre1,double(Pros1)),...
-                    immultiply(entre1,double(Pros2)),...
-                    immultiply(entre1,double(Pros3)));
+                    immultiply(entre2,double(Pros2)),...
+                    immultiply(entre3,double(Pros3)));
 [meanPros, covPros] = meanAndCov(matrixPros);
 
 matrixFondo = cat(1, immultiply(entre1,double(Fondo1)),...
-                    immultiply(entre1,double(Fondo2)),...
-                    immultiply(entre1,double(Fondo3)));
+                    immultiply(entre2,double(Fondo2)),...
+                    immultiply(entre3,double(Fondo3)));
 [meanFondo, covFondo] = meanAndCov(matrixFondo);
 end
