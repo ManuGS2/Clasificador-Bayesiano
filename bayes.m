@@ -21,7 +21,7 @@ row = size(imagen,1);
 
 for x=1:row
     for y=1:col
-        pixel_vect = [imagen(x,y), x, y];
+        pixel_vect = [imagen(x,y);x;y];
         difPros = pixel_vect - meanPros;
         difHalo = pixel_vect - meanHalo;
         difFondo = pixel_vect - meanFondo;
