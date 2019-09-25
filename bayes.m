@@ -14,16 +14,17 @@ entre3 = mat2gray(imread("./img-training/prueba3.png"));
 
 imagen = mat2gray(imread("./img-training/prueba1.png")); % IMAGEN DE PRUEBA
 
-covHalo, meanHalo, probaHalo, covPros, meanPros, probaPros,covFondo, meanFondo, probaFondo = training(entre1, entre2, entre3);
+[covHalo, meanHalo, probaHalo, covPros, meanPros, probaPros,covFondo, meanFondo, probaFondo] = training(entre1, entre2, entre3);
 
 col = size(imagen,2);
 row = size(imagen,1);
 
 for x=1:row
     for y=1:col
-        difPros = imagen(x,y) - meanPros;
-        difHalo = imagen(x,y) - meanHalo;
-        difFondo = imagen(x,y) - meanFondo;
+        pixel_vect = [imagen(x,y), x, y];
+        difPros = pixel_vect - meanPros;
+        difHalo = pixel_vect - meanHalo;
+        difFondo = pixel_vect - meanFondo;
 
         provClase(1) = -(1/2) * difPros' * inv(covPros) * difPros - (1/2) * log(det(covPros)) + log(probaPros);
         provClase(2) = -(1/2) * difHalo' * inv(covHalo) * difHalo - (1/2) * log(det(covHalo)) + log(probaHalo);

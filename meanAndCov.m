@@ -4,7 +4,7 @@ col = size(imageMatrix,2);
 row = size(imageMatrix,1)/3; % There 3 images in a column
 muestras = col*row*3;
 mean = zeros(3,1);
-cov = zeros(3,3);
+cov = zeros(3);
 pixelValue = zeros(3,1);
 
 % mean
